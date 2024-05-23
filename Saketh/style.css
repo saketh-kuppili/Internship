@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f8fa;
+}
+
+.container {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logos img {
+    height: 50px;
+    margin-right: 20px;
+}
+
+.sign-out {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sign-out:hover {
+    background-color: #0056b3;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about {
+    margin-bottom: 20px;
+    
+}
+
+.about h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.description {
+    background-color: #f0f0f0;
+    text-align: left;
+    padding: 20px;
+    justify-items: center;
+    align-items: center;
+    border-radius: 8px;
+}
+.description p{
+    text-align: left;
+}
+
+.downloads {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.downloads-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.downloads-header h2 {
+    flex: 1;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+li span {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #ffcd00;
+    color: black;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+li a {
+    margin-left: auto;
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+}
+
+li a:hover {
+    color: #007bff;
+}
+
+li img {
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+}
+
+.upload-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;  /* Align items to the right */
+    align-items: center;
+    width: 100%;
+}
+
+.upload-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: #ffcd00;
+    border-radius: 50%;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.upload-button i {
+    color: black;
+}
+.download-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.download-item:hover {
+    background-color: #f9f9f9;
+}
+
+.download-item span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.download-item a {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.download-item a img {
+    height: 20px;
+    margin-left: 10px;
+}
+
+.download-details {
+    display: none;
+    padding: 10px;
+    background-color: #ffffff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.download-item.expanded .download-details {
+    display: block;
+    width: 40em;
+    font-size: 20px;
+    max-height: 200px; /* or any other maximum height that fits your content */
+    padding: 10px;
+}

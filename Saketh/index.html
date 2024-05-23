@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="U    TF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Login</title>
+    <script type="module" src="googleauth.js"></script>
+    <!-- <script src="firebase_auth.js"></script> -->
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <span class="i1">
+                <img alt="ACS Logo" src="/images/acs.jpg">
+            </span>
+            <span class="i2">
+                <img alt="IOTIQ Logo" src="/images/iotiq.png">
+            </span>
+        </div>
+        <div class="status">
+            <div id="sign-in">
+                <p> Already have an account? <button id="signInBtn">Sign In</button></p>
+            </div>
+            <div id="sign-up">
+                <p> Don't have an account? <button id="signUpBtn">Sign Up</button></p>
+            </div>
+        </div>
+        <div class="login">
+            <div class="form" id="form1">
+                <h1>Welcome Back</h1>
+                <p id="signup">Login into your account</p>
+                <div class="social">
+                    <button id="google-btn"><img alt="Google Social Login" src="/images/Google_Logo.jpg">
+                        <h3>Google</h3>
+                    </button>
+                </div>
+                <p id="signup1">Or Continue with</p>
+                <form id="loginForm" action="#" method="post">
+                    <input type="email" id="loginEmail" name="email" placeholder="Email" required>
+                    <input type="password" id="loginPassword" name="password" placeholder="Password" required>
+                    <button type="submit" id="loginSubmitBtn">LOG IN</button>
+                    <div id="loginErrorMessage" class="error-message"></div>
+                </form>
+            </div>
+            <div class="form" id="form2">
+                <h1>Welcome</h1>
+                <form id="signupForm" action="#" method="post">
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <input type="email" id="signupEmail" name="email" placeholder="Email" required>
+                    <input type="password" id="signupPassword" name="password" placeholder="Password" required>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+                    <p id="terms">By signing up you agree to our Terms of Service and Privacy policy and confirm that you are at least 18 years old</p>
+                    <button type="submit" id="signupSubmitBtn">SIGN UP</button>
+                    <div id="signupErrorMessage" class="error-message" style="display: none;"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const signInBtn = document.getElementById('signInBtn');
+    const signUpBtn = document.getElementById('signUpBtn');
+    const signInStatus = document.getElementById('sign-in');
+    const signUpStatus = document.getElementById('sign-up');
+    const form1 = document.getElementById('form1');
+    const form2 = document.getElementById('form2');
+
+    // Initialize display states
+    signInStatus.style.display = 'none';
+    signUpStatus.style.display = 'block';
+    form1.style.display = 'block';
+    form2.style.display = 'none';
+
+    signInBtn.addEventListener('click', () => {
+        signInStatus.style.display = 'none';
+        signUpStatus.style.display = 'block';
+        form1.style.display = 'block';
+        form2.style.display = 'none';
+    });
+
+    signUpBtn.addEventListener('click', () => {
+        signInStatus.style.display = 'block';
+        signUpStatus.style.display = 'none';
+        form1.style.display = 'none';
+        form2.style.display = 'block';
+    });
+
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+
+    loginForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (validateLoginForm()) {
+            window.location.href = "home.html";
+        }
+    });
+
+    signupForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (validateSignupForm()) {
+            window.location.href = "home.html";
+        }
+    });
+
+    function validateLoginForm() {
+        const email = document.getElementById('loginEmail');
+        const password = document.getElementById('loginPassword');
+        const errorMessage = document.getElementById('loginErrorMessage');
+
+        let isValid = true;
+        errorMessage.innerHTML = '';
+        errorMessage.style.display = 'none';
+
+        // Email Validation
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+            errorMessage.innerHTML += 'Please enter a valid email address.<br>';
+            isValid = false;
+        }
+
+        // Password Validation
+        if (password.value.length < 8) {
+            errorMessage.innerHTML += 'Password must be at least 8 characters long.<br>';
+            isValid = false;
+        }
+
+        if (!isValid) {
+            errorMessage.style.display = 'block';
+        }
+
+        return isValid;
+    }
+
+    function validateSignupForm() {
+        const name = document.getElementById('name');
+        const email = document.getElementById('signupEmail');
+        const password = document.getElementById('signupPassword');
+        const confirmPassword = document.getElementById('confirmPassword');
+        const errorMessage = document.getElementById('signupErrorMessage');
+
+        let isValid = true;
+        errorMessage.innerHTML = '';
+        errorMessage.style.display = 'none';
+
+        // Name Validation
+        if (name.value.length < 8) {
+            errorMessage.innerHTML += 'Name must be at least 8 characters long.<br>';
+            isValid = false;
+        }
+
+        // Email Validation
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+            errorMessage.innerHTML += 'Please enter a valid email address.<br>';
+            isValid = false;
+        }
+
+        // Password Validation
+        if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}/.test(password.value)) {
+            errorMessage.innerHTML += 'Password must contain at least one uppercase letter, one lowercase letter, one digit, one special character, and be at least 8 characters long.<br>';
+            isValid = false;
+        }
+
+        // Confirm Password Validation
+        if (password.value !== confirmPassword.value) {
+            errorMessage.innerHTML += 'Passwords do not match.<br>';
+            isValid = false;
+        }
+
+        if (!isValid) {
+            errorMessage.style.display = 'block';
+        }
+
+        return isValid;
+    }
+});
+
+    </script>
+</body>
+</html>

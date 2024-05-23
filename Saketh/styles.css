@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap'); 
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 300;
+}
+
+.container {
+    background-image: url(Frame\ 1\ \(Internship\).png);
+    background-position: 20%;
+    background-size: 36% 80%;
+    background-repeat: no-repeat;
+    width: auto;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; /* Align items to the right */
+     /* Align items vertically centered */
+}
+
+.nav {
+    position: relative;
+    width: 80vw;
+}
+
+.nav .i1 img {
+    height: 55px;
+    width: 70px;
+    padding: 0.5rem;
+}
+
+.nav .i2 img {
+    height: 50px;
+    width: 80px;
+    padding: 0.5rem;
+}
+
+.status button{
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: #1d5f9c;
+    font-size:medium;
+    cursor: pointer;
+}
+
+.status #sign-in, #sign-up {
+    position: absolute;
+    right: 12em;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+
+.sign-in a {
+    text-decoration: none;
+    color: #a10101;
+    font-weight: bold;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70vw; /* Adjust width as needed */
+    height: 100vh;
+}
+
+.form {
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 5px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    width: 400px;
+}
+
+.form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form #signup {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.social img {
+    height: 30px;
+    width: 30px;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.5rem;
+}
+
+.social button {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.social button img {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px; /* Adjust spacing between image and text */
+}
+
+.social button h3 {
+    margin: 0; /* Remove default margin */
+}
+
+.form #signup1 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: -5px;
+}
+
+.form #terms {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: -2px;
+    font-size: 15px;
+}
+
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="email"],
+.form input[type="tel"],
+.form button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form button {
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: #0056b3;
+}
+
+.social button {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    animation: fadeOut 7s forwards;
+}
